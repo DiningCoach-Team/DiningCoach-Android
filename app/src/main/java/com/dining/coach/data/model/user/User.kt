@@ -9,7 +9,7 @@ data class User(
     val accessTkn: String? = null,
     val refreshTkn: String? = null
 ) {
-    fun User.toDomain(): ResponseUser {
+    internal fun User.toDomain(): ResponseUser {
         return ResponseUser(
             id = id,
             accessTkn = accessTkn,

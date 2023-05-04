@@ -10,7 +10,7 @@ data class ResponseUser(
     @SerializedName("refreshTkn")
     val refreshTkn: String? = null
 ) {
-    fun ResponseUser.toLocal(): User {
+    internal fun ResponseUser.toLocal(): User {
         return User(
             id = id,
             accessTkn = accessTkn,
