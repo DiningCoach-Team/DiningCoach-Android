@@ -1,9 +1,9 @@
-package com.dining.coach.view
+package com.dining.coach
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
 @HiltAndroidApp
-class MyApplication:Application() {
+class DCApplication:Application() {
 
 }
