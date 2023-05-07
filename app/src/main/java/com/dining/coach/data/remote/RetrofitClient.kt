@@ -1,4 +1,4 @@
-package com.dining.coach.util
+package com.dining.coach.data.remote
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
