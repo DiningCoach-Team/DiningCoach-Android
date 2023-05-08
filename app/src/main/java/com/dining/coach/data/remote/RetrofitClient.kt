@@ -16,6 +16,7 @@ class RetrofitClient {
 
         private fun getInstance(): Retrofit = Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .addCallAdapterFactory(NetworkCallAdapter.Factory())
             .addConverterFactory(GsonConverterFactory.create())
             .client(createClient())
             .build()
