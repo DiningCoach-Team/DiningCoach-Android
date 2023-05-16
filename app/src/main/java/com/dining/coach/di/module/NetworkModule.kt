@@ -1,10 +1,13 @@
 package com.dining.coach.di.module
 
+import android.content.Context
+import com.dining.coach.di.manager.DeviceNetworkManager
 import com.dining.coach.di.manager.remote.NetworkCallAdapter
 import com.dining.coach.util.const.BASE_URL
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,4 +38,8 @@ class NetworkModule {
             .client(okHttpClient)
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideDeviceNetworkManager(@ApplicationContext context: Context): DeviceNetworkManager = DeviceNetworkManager(context)
 }
