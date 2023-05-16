@@ -3,6 +3,8 @@ package com.dining.coach.base
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.dining.coach.util.view.GridLayoutManagerWrapper
@@ -20,6 +22,14 @@ open class BaseActivity: AppCompatActivity(), OnClickListener {
             // ERROR()
         }
     }
+
+    protected inline fun <reified T : ViewDataBinding> binding(
+        resId: Int
+    ): Lazy<T> =
+        lazy {
+            val bindUtil = DataBindingUtil.setContentView<T>(this, resId)
+            bindUtil
+        }
 
     /**
      * @suppress Inconsistency detected, Invalid view holder adapter positionViewHolder

@@ -1,4 +1,4 @@
-package com.dining.coach.view
+package com.dining.coach.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
