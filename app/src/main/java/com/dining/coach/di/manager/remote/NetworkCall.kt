@@ -1,4 +1,4 @@
-package com.dining.coach.data.remote
+package com.dining.coach.di.manager.remote
 
 import com.dining.coach.util.const.NETWORK_RSPN_200
 import com.dining.coach.util.const.NETWORK_RSPN_400
@@ -10,7 +10,6 @@ import com.dining.coach.util.const.NETWORK_RSPN_500
 import com.dining.coach.util.const.NETWORK_RSPN_501
 import com.dining.coach.util.const.NETWORK_RSPN_502
 import com.dining.coach.util.const.NETWORK_RSPN_503
-import com.dining.coach.util.debug.INFO
 import com.dining.coach.util.debug.N_INFO
 import okhttp3.Request
 import okio.Timeout
@@ -19,13 +18,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.io.IOException
 
-class NetworkCall<T : Any>(private val call: Call<T>, private val apiInfo: APIInfo) : Call<NetworkResponse<T>> {
+class NetworkCall<T : Any>(private val call: Call<T>, private val apiInfo: APIInfo) :
+    Call<NetworkResponse<T>> {
     override fun enqueue(callback: Callback<NetworkResponse<T>>) {
         call.enqueue(object : Callback<T> {
             override fun onResponse(call: Call<T>, response: Response<T>) {
 
                 N_INFO("RESPONSE NETWORK =======================================================")
-                N_INFO("RESPOSNE API -> ${apiInfo.api}")
+                N_INFO("RESPONSE API -> ${apiInfo.api}")
 
                 when (response.code()) {
                     NETWORK_RSPN_200 -> {
@@ -38,7 +38,7 @@ class NetworkCall<T : Any>(private val call: Call<T>, private val apiInfo: APIIn
                             callback.onResponse(
                                 this@NetworkCall,
                                 Response.success(
-                                    NetworkResponse.returnError(apiInfo)
+                                    NetworkResponse.ReturnError(apiInfo)
                                 )
                             )
                         }
@@ -48,20 +48,40 @@ class NetworkCall<T : Any>(private val call: Call<T>, private val apiInfo: APIIn
                     NETWORK_RSPN_402,
                     NETWORK_RSPN_403,
                     NETWORK_RSPN_404 -> {
-                        // Server Error
-
+                        callback.onResponse(
+                            this@NetworkCall,
+                            Response.success(
+                                NetworkResponse.ReturnError(apiInfo)
+                            )
+                        )
                     }
 
                     NETWORK_RSPN_409 -> {
-                        // Result Error (ErrorBody 참조)
-
+                        callback.onResponse(
+                            this@NetworkCall,
+                            Response.success(
+                                NetworkResponse.ResultError(
+                                    apiInfo,
+                                    response.errorBody().toString()
+                                )
+                            )
+                        )
                     }
 
                     NETWORK_RSPN_500,
                     NETWORK_RSPN_501,
                     NETWORK_RSPN_502,
                     NETWORK_RSPN_503 -> {
-
+                        callback.onResponse(
+                            this@NetworkCall,
+                            Response.success(
+                                NetworkResponse.Failure(
+                                    apiInfo,
+                                    response.code(),
+                                    response.errorBody().toString()
+                                )
+                            )
+                        )
                     }
                 }
             }
