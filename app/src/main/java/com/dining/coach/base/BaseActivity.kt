@@ -8,15 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dining.coach.ui.main.MainActivity
+import com.dining.coach.ui.splash.SplashActivity
 import com.dining.coach.util.view.GridLayoutManagerWrapper
 import com.dining.coach.util.view.LinearLayoutManagerWrapper
+import com.dining.coach.util.view.OSController
 
 /**
  * @author 강범석
  * @since 2023.05.26
  * @param resId Activity Resource ID
  */
-abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCompatActivity(), OnClickListener {
+abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCompatActivity(), OnClickListener, OSController {
 
     private lateinit var baseViewModel: BaseViewModel
     protected lateinit var bind: T
@@ -32,6 +35,19 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
 
         bind = DataBindingUtil.setContentView(this, resId)
         baseViewModel = createActivity()
+        initBaseUI()
+    }
+
+    private fun initBaseUI() {
+        when (this) {
+            is SplashActivity -> {
+                setPrimaryOSBars(this)
+            }
+
+            else -> {
+                setOsBarsColor(this, OSController.IconColor.WHITE)
+            }
+        }
     }
 
     fun setOnClickListeners(vararg views: View) {
