@@ -1,5 +1,6 @@
 package com.dining.coach.base
 
+import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
 import androidx.appcompat.app.AppCompatActivity
@@ -10,7 +11,28 @@ import androidx.recyclerview.widget.RecyclerView
 import com.dining.coach.util.view.GridLayoutManagerWrapper
 import com.dining.coach.util.view.LinearLayoutManagerWrapper
 
-open class BaseActivity: AppCompatActivity(), OnClickListener {
+/**
+ * @author 강범석
+ * @since 2023.05.26
+ * @param resId Activity Resource ID
+ */
+abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCompatActivity(), OnClickListener {
+
+    private lateinit var baseViewModel: BaseViewModel
+    protected lateinit var bind: T
+
+    abstract fun createActivity(): BaseViewModel
+
+    /**************************************************************************************************
+     * LIFE CYCLE
+     **************************************************************************************************/
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        bind = DataBindingUtil.setContentView(this, resId)
+        baseViewModel = createActivity()
+    }
 
     fun setOnClickListeners(vararg views: View) {
         try {
@@ -22,14 +44,6 @@ open class BaseActivity: AppCompatActivity(), OnClickListener {
             // ERROR()
         }
     }
-
-    protected inline fun <reified T : ViewDataBinding> binding(
-        resId: Int
-    ): Lazy<T> =
-        lazy {
-            val bindUtil = DataBindingUtil.setContentView<T>(this, resId)
-            bindUtil
-        }
 
     /**
      * @suppress Inconsistency detected, Invalid view holder adapter positionViewHolder
