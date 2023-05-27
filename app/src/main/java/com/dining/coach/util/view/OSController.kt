@@ -6,6 +6,8 @@ import android.view.View
 import android.view.WindowInsetsController
 import androidx.core.content.ContextCompat
 import com.dining.coach.R
+import com.dining.coach.util.debug.DEBUG
+import com.dining.coach.util.debug.name
 
 interface OSController {
     fun setOsBarsColor(activity: Activity, iconColor: IconColor) {
@@ -64,11 +66,10 @@ interface OSController {
                     decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                 }
             }
-
         }
 
-        activity.window.statusBarColor = ContextCompat.getColor(activity, color)
-        activity.window.statusBarColor = ContextCompat.getColor(activity, color)
+        activity.window.statusBarColor = color
+        activity.window.statusBarColor = color
     }
 
     fun setPrimaryOSBars(activity: Activity) {

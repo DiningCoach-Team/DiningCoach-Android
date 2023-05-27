@@ -1,5 +1,6 @@
 package com.dining.coach.base
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.View.OnClickListener
@@ -92,5 +93,12 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
 
     override fun onClick(p0: View?) {
 
+    }
+
+    protected inline fun <reified T : AppCompatActivity> gotoActivityWithClear() {
+        val intent = Intent(this, T::class.java)
+        overridePendingTransition(0, 0)
+        startActivity(intent)
+        finish()
     }
 }
