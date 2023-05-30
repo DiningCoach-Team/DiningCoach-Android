@@ -49,6 +49,12 @@
         <activity
             android:name=".ui.main.MainActivity"
             android:exported="false"/>
+        <activity
+            android:name=".ui.barcode.BarcodeActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.gallery.GalleryActivity"
+            android:exported="false"/>
     </application>
 
 </manifest>
