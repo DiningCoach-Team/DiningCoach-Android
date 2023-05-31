@@ -1,4 +1,4 @@
-package com.dining.coach.data.db
+package com.diningcoach.data.db
 
 import android.content.Context
 import android.content.SharedPreferences

@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "DiningCoach-Android"
 include ':app'
+include ':domain'
+include ':data'
