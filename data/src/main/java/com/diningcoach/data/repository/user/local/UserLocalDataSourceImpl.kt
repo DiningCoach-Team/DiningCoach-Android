@@ -6,8 +6,8 @@ import javax.inject.Inject
 class UserLocalDataSourceImpl @Inject constructor(
     private val preferences: DCPreference
 ): UserLocalDataSource {
+
     override fun checkIsLogin(): Boolean {
-        preferences.getString("PREF_ID", "")
-        return
+        return !preferences.getString("PREF_ID", "").isNullOrBlank()
     }
 }
