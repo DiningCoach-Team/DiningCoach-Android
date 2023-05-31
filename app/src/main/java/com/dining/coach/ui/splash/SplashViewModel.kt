@@ -23,20 +23,14 @@ class SplashViewModel @Inject constructor(
     private var _isLogin = MutableStateFlow(false)
     val isLogin get() = _isLogin.asStateFlow()
 
-    private var isPastTime = false
-
-    private var onPast: (() -> Unit)? = null
-
     init {
         checkIsLogin()
     }
 
     fun getOnMoveAction(onPast: () -> Unit) {
-        this@SplashViewModel.onPast = onPast
-
         CoroutineScope(Dispatchers.Default).launch {
             delay(1000)
-            isPastTime = true
+            onPast.invoke()
         }
     }
 

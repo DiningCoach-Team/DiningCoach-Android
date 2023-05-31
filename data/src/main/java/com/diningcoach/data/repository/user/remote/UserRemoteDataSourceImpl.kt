@@ -4,6 +4,6 @@ import javax.inject.Inject
 
 class UserRemoteDataSourceImpl @Inject constructor(
 
-) {
+): UserRemoteDataSource {
 
 }

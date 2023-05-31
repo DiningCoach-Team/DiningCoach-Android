@@ -1,7 +1,6 @@
 package com.diningcoach.data.di.module
 
 import android.content.Context
-import com.diningcoach.data.api.DiningCoachApi
 import com.diningcoach.data.di.manager.DeviceNetworkManager
 import com.diningcoach.data.di.manager.remote.NetworkCallAdapter
 import com.diningcoach.domain.common.BASE_URL
@@ -18,7 +17,7 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-object DataModule {
+object NetworkModule {
 
     @Provides
     @Singleton

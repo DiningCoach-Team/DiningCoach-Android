@@ -12,9 +12,7 @@ import com.dining.coach.util.debug.name
 interface OSController {
     fun setOsBarsColor(activity: Activity, iconColor: IconColor) {
         val decorView = activity.window.decorView
-        var color = 0
-
-        color = when (iconColor) {
+        val color = when (iconColor) {
             IconColor.WHITE -> {
                 ContextCompat.getColor(activity, R.color.white)
             }
@@ -69,7 +67,7 @@ interface OSController {
         }
 
         activity.window.statusBarColor = color
-        activity.window.statusBarColor = color
+        activity.window.navigationBarColor = color
     }
 
     fun setPrimaryOSBars(activity: Activity) {

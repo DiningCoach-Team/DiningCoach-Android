@@ -12,6 +12,7 @@ import com.dining.coach.base.BaseViewModel
 import com.dining.coach.databinding.ActivitySplashBinding
 import com.dining.coach.ui.login.LoginActivity
 import com.dining.coach.ui.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +21,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @SuppressLint("CustomSplashScreen")
+@AndroidEntryPoint
 class SplashActivity: BaseActivity<ActivitySplashBinding>(R.layout.activity_splash) {
     private val viewModel: SplashViewModel by viewModels()
 

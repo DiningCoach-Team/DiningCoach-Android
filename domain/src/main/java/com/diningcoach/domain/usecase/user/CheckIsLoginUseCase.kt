@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.flow
 import okio.IOException
 import javax.inject.Inject
 
-class CheckIsLoginUseCase @Inject constructor(
+class CheckIsLoginUseCase (
     private val repository: UserRepository
 ) {
     operator fun invoke(): Flow<Resource<Boolean>> = flow {
