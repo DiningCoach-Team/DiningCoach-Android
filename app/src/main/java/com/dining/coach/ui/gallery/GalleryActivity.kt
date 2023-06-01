@@ -9,13 +9,15 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.dining.coach.R
 import com.dining.coach.base.BaseActivity
+import com.dining.coach.base.BaseViewModel
+import com.dining.coach.databinding.ActivityGalleryBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class GalleryActivity : BaseActivity() {
+class GalleryActivity : BaseActivity<ActivityGalleryBinding>(R.layout.activity_gallery) {
     private val viewModel: GalleryViewModel by viewModels()
 
     private val requiredPermissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
@@ -35,6 +37,8 @@ class GalleryActivity : BaseActivity() {
             }
         }
     }
+
+    override fun createActivity() = viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
