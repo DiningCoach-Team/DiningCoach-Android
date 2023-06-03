@@ -9,7 +9,6 @@ import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.dining.coach.R
 import com.dining.coach.base.BaseActivity
-import com.dining.coach.base.BaseViewModel
 import com.dining.coach.databinding.ActivityGalleryBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
@@ -19,42 +18,39 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class GalleryActivity : BaseActivity<ActivityGalleryBinding>(R.layout.activity_gallery) {
     private val viewModel: GalleryViewModel by viewModels()
-
     private val requiredPermissions = arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE)
-    private val requestPermissionsLauncher by lazy {
-        registerForActivityResult(
-            ActivityResultContracts.RequestMultiplePermissions()
-        ) { isGranted ->
-            if (isGranted.all { it.value }) {
-                // TODO("replace coroutine scope")
-                CoroutineScope(Dispatchers.IO).launch {
-                    viewModel.fetchImages(this@GalleryActivity)
-                }
-            } else {
-                // TODO("replace permission denied process")
-                Toast.makeText(this, "permission error", Toast.LENGTH_SHORT).show()
-                finish()
-            }
-        }
-    }
 
     override fun createActivity() = viewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_gallery)
 
         processGetGalleryData()
     }
 
     private fun processGetGalleryData(){
         if (hasAllPermissions()) {
-            // TODO("replace coroutine scope")
-            CoroutineScope(Dispatchers.IO).launch {
-                viewModel.fetchImages(this@GalleryActivity)
-            }
+            fetchImages()
         } else {
-            requestPermissionsLauncher.launch(requiredPermissions)
+            registerForActivityResult(
+                ActivityResultContracts.RequestMultiplePermissions()
+            ) { isGranted ->
+                if (isGranted.all { it.value }) {
+                    fetchImages()
+                } else {
+                    // TODO("replace permission denied process")
+                    Toast.makeText(this, "permission error", Toast.LENGTH_SHORT).show()
+                    finish()
+                }
+            }.launch(requiredPermissions)
+        }
+    }
+
+
+    private fun fetchImages(){
+        // TODO("replace coroutine scope")
+        CoroutineScope(Dispatchers.IO).launch {
+            viewModel.fetchImages(this@GalleryActivity)
         }
     }
 
