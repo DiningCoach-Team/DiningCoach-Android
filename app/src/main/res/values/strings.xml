@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Dining Coach</string>
+
+    <!-- Common Strings -->
+    <string name="common_go_setting">설정으로 이동</string>
+
+    <!-- Snackbar -->
+    <string name="snackbar_default_explain">Dining Coach Alarm 설명 문구</string>
+    <string-array name="snackbar">
+        <item name= "explain_alarm_status">다이닝코치 알림이 차단되어 있습니다.</item>
+    </string-array>
 </resources>
