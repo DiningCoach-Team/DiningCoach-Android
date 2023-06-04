@@ -14,6 +14,9 @@ import com.dining.coach.ui.splash.SplashActivity
 import com.dining.coach.util.view.GridLayoutManagerWrapper
 import com.dining.coach.util.view.LinearLayoutManagerWrapper
 import com.dining.coach.util.view.OSController
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * @author 강범석
@@ -39,6 +42,9 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
         initBaseUI()
     }
 
+    /**************************************************************************************************
+     * INIT UI
+     **************************************************************************************************/
     private fun initBaseUI() {
         when (this) {
             is SplashActivity -> {
@@ -51,6 +57,10 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
         }
     }
 
+    /**************************************************************************************************
+     * EVENT
+     **************************************************************************************************/
+
     fun setOnClickListeners(vararg views: View) {
         try {
             views.forEach { view ->
@@ -58,9 +68,25 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
             }
         }catch (e: Exception) {
             // TODO : 상호작용 오류. 재 Inflate 요망.
-            // ERROR()
+            CoroutineScope(Dispatchers.Main).launch {
+                launch {
+                    bind = DataBindingUtil.setContentView(this@BaseActivity, resId)
+                }.join()
+
+                launch {
+                    setOnClickListeners(*views)
+                }
+            }
         }
     }
+
+    override fun onClick(p0: View?) {
+
+    }
+
+    /**************************************************************************************************
+     * OPTION
+     **************************************************************************************************/
 
     /**
      * @suppress Inconsistency detected, Invalid view holder adapter positionViewHolder
@@ -89,10 +115,6 @@ abstract class BaseActivity<T : ViewDataBinding>(private val resId: Int): AppCom
     protected fun wrapGridRecyclerView(list: RecyclerView, spanCount: Int) {
         val manager = GridLayoutManagerWrapper(this, spanCount)
         list.layoutManager = manager
-    }
-
-    override fun onClick(p0: View?) {
-
     }
 
     protected inline fun <reified T : AppCompatActivity> gotoActivityWithClear() {
