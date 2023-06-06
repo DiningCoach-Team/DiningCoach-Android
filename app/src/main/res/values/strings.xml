@@ -5,10 +5,16 @@
     <string name="common_go_setting">설정으로 이동</string>
     <string name="common_look_around">둘러보기</string>
     <string name="common_password">비밀번호</string>
+    <string name="commomn_login">로그인</string>
+    <string name="common_find_id">아이디 찾기</string>
+    <string name="common_find_pw">비밀번호 찾기</string>
+    <string name="common_register">회원가입</string>
+    <string name="common_easy_login">간편 로그인</string>
     
     <!-- Login Activity -->
     <string name="login_id_hint">아이디 (이메일)</string>
     <string name="login_id_hint_prefix">이메일을 입력해 주세요</string>
+    <string name="login_has_problem">로그인에 문제가 있으신가요?</string>
 
 
     <!-- Snackbar -->

@@ -23,6 +23,13 @@
     <dimen name="common_input_spacing_component">5dp</dimen>
     <dimen name="common_input_edit_text_spacing_with_line">16dp</dimen>
 
+    <dimen name="common_button_height">56dp</dimen>
+    <dimen name="common_button_radius">10dp</dimen>
+    <dimen name="common_button_text_size">18sp</dimen>
+
+    <!-- Login Components -->
+    <dimen name="login_button_round_size">56dp</dimen>
+
     <!-- Snack bar -->
     <dimen name="snackbar_default_root_height">48dp</dimen>
     <dimen name="snackbar_default_root_margin">16dp</dimen>
