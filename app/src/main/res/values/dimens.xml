@@ -15,6 +15,13 @@
 
     <!-- Common Components -->
     <dimen name="common_topbar_height">56dp</dimen>
+    <dimen name="common_topbar_text_button_sp">11sp</dimen>
+
+    <dimen name="common_input_default_height">56dp</dimen>
+    <dimen name="common_input_hint_text_size">11sp</dimen>
+    <dimen name="common_input_helper_text_size">11sp</dimen>
+    <dimen name="common_input_spacing_component">5dp</dimen>
+    <dimen name="common_input_edit_text_spacing_with_line">16dp</dimen>
 
     <!-- Snack bar -->
     <dimen name="snackbar_default_root_height">48dp</dimen>

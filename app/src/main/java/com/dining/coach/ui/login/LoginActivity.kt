@@ -15,6 +15,4 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
     override fun createActivity(): BaseViewModel {
         return viewModel
     }
-
-
 }
