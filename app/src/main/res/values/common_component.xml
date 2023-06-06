@@ -5,7 +5,6 @@
 
         <!-- Mode -->
         <item name="boxBackgroundMode">none</item>
-        <item name="android:textCursorDrawable">@color/primary_500</item>
 
         <!-- Box -->
         <item name="boxStrokeColor">@color/primary_500</item>
