@@ -2,10 +2,9 @@ package com.dining.coach.service
 
 import android.app.Service
 import android.content.Intent
-import android.net.wifi.p2p.WifiP2pManager.NetworkInfoListener
 import android.os.Binder
 import android.os.IBinder
-import com.dining.coach.di.manager.DeviceNetworkManager
+import com.diningcoach.data.di.manager.DeviceNetworkManager
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
