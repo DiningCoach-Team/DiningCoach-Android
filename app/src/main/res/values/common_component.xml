@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MaterialInputPrimary" parent="@style/Widget.Design.TextInputLayout">
+        <item name="android:layout_height">@dimen/common_input_default_height</item>
+
+        <!-- Mode -->
+        <item name="boxBackgroundMode">none</item>
+
+        <!-- Box -->
+        <item name="boxStrokeColor">@color/primary_500</item>
+        <item name="boxBackgroundColor">@color/white</item>
+        <item name="colorControlNormal">@color/neutral_400</item>
+
+        <!-- Hint in EditText -->
+        <item name="android:textColorHint">@color/neutral_400</item>
+
+        <!-- Hint on EditText Outside -->
+        <item name="hintTextColor">@color/neutral_400</item>
+        <item name="hintTextAppearance">@style/HintTextAppearance</item>
+
+        <!-- Helper -->
+        <item name="helperTextTextAppearance">@style/HelperTextAppearance</item>
+    </style>
+
+    <style name="MaterialEditText" parent="Widget.AppCompat.EditText">
+        <!-- Option -->
+        <item name="lineSpacing">10dp</item>
+        <item name="maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:paddingBottom">@dimen/common_input_edit_text_spacing_with_line</item>
+        <item name="android:textSize">@dimen/text_16</item>
+        <item name="android:textColor">@color/neutral_900</item>
+    </style>
+    
+    <style name="HintTextAppearance">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/common_input_hint_text_size</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+    
+    <style name="HelperTextAppearance">
+        <item name="android:fontFamily">@font/pretendard_semibold</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">@dimen/common_input_helper_text_size</item>
+        <item name="android:includeFontPadding">false</item>
+    </style>
+
+    <style name="ErrorTextApperance">
+
+    </style>
+</resources>

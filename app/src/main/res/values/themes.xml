@@ -13,4 +13,17 @@
         <item name="android:statusBarColor">?attr/colorOnSecondary</item>
         <!-- Customize your theme here. -->
     </style>
+    <style name="Theme.DiningCoachAndroid.Material" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/primary_300</item>
+        <item name="colorPrimaryVariant">@color/primary_500</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/neutral_300</item>
+        <item name="colorSecondaryVariant">@color/neutral_400</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorOnSecondary</item>
+        <!-- Customize your theme here. -->
+    </style>
 </resources>

@@ -13,8 +13,7 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(R.layout.activity_login)
     private val viewModel: LoginViewModel by viewModels()
 
     override fun createActivity(): BaseViewModel {
+        bind.vm = viewModel
         return viewModel
     }
-
-
 }
