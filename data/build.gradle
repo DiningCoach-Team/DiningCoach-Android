@@ -38,6 +38,7 @@ dependencies {
 
     def retrofitVersion = "2.9.0"
     def hiltVersion = "2.45"
+    def pagingVersion = "3.1.1"
 
     // Retrofit2
     implementation "com.squareup.retrofit2:retrofit:$retrofitVersion"
@@ -51,4 +52,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:$hiltVersion"
     kapt "com.google.dagger:hilt-compiler:$hiltVersion"
     kapt "androidx.hilt:hilt-compiler:1.0.0"
+
+    // paging
+    implementation "androidx.paging:paging-runtime-ktx:$pagingVersion"
 }

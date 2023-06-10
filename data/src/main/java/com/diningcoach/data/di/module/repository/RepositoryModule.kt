@@ -1,6 +1,8 @@
 package com.diningcoach.data.di.module.repository
 
+import com.diningcoach.data.repository.gallery.GalleryRepositoryImpl
 import com.diningcoach.data.repository.user.UserRepositoryImpl
+import com.diningcoach.domain.repository.GalleryRepository
 import com.diningcoach.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
@@ -15,4 +17,8 @@ interface RepositoryModule {
     @Singleton
     @Binds
     fun bindsUserRepository(implements: UserRepositoryImpl): UserRepository
+
+    @Singleton
+    @Binds
+    fun bindsGalleryRepository(implements: GalleryRepositoryImpl): GalleryRepository
 }

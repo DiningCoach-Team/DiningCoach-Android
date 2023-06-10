@@ -1,5 +1,7 @@
 package com.diningcoach.data.di.module.repository
 
+import com.diningcoach.data.repository.gallery.local.GalleryLocalDataSource
+import com.diningcoach.data.repository.gallery.local.GalleryLocalDataSourceImpl
 import com.diningcoach.data.repository.user.local.UserLocalDataSource
 import com.diningcoach.data.repository.user.local.UserLocalDataSourceImpl
 import dagger.Binds
@@ -15,4 +17,8 @@ interface LocalDataSourceModule {
     @Singleton
     @Binds
     fun bindsUserLocalDataSource(implements: UserLocalDataSourceImpl): UserLocalDataSource
+
+    @Binds
+    fun provideGalleryLocalDataSource(implements: GalleryLocalDataSourceImpl): GalleryLocalDataSource
+
 }
