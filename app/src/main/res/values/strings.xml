@@ -16,6 +16,24 @@
     <string name="login_id_hint_prefix">이메일을 입력해 주세요</string>
     <string name="login_has_problem">로그인에 문제가 있으신가요?</string>
 
+    <string name="token_info_error">토큰 정보 보기 실패</string>
+    <string name="token_info_success">토큰 정보 보기 성공</string>
+
+    <string name="access_denied">접근이 거부됨(동의 취소)</string>
+    <string name="invalid_client">유효하지 않은 앱</string>
+
+    <string name="invalid_grant">인증 수단이 유효하지 않아 인증할 수 없는 상태</string>
+    <string name="invalid_request">요청 파라미터 오류</string>
+    <string name="invalid_scope">유효하지 않은 scope ID</string>
+    <string name="mis_configured">설정이 올바르지 않음(android key hash error)"</string>
+    <string name="server_error">서버 내부 에러</string>
+    <string name="unauthorized">앱이 요청 권한이 없음</string>
+    <string name="etc_error">기타 에러</string>
+
+    <string name="success_login">로그인에 성공하였습니다.</string>
+    
+    <string name="kakao_app_key">877625a3bd221ae6e830c9a1efcc0f06</string>
+    <string name="kakao_scheme">kakao877625a3bd221ae6e830c9a1efcc0f06</string>
 
     <!-- Snackbar -->
     <string name="snackbar_default_explain">Dining Coach Alarm 설명 문구</string>

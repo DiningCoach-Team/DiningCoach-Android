@@ -1,5 +1,7 @@
 package com.dining.coach.ui.main
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.dining.coach.R
@@ -16,5 +18,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun createActivity(): BaseViewModel {
         return viewModel
+    }
+
+    companion object {
+        fun getIntent(context: Context) =
+            Intent(context, MainActivity::class.java)
     }
 }
