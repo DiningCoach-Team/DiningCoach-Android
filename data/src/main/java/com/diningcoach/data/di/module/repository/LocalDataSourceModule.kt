@@ -18,7 +18,8 @@ interface LocalDataSourceModule {
     @Binds
     fun bindsUserLocalDataSource(implements: UserLocalDataSourceImpl): UserLocalDataSource
 
+    @Singleton
     @Binds
-    fun provideGalleryLocalDataSource(implements: GalleryLocalDataSourceImpl): GalleryLocalDataSource
+    fun bindsGalleryLocalDataSource(implements: GalleryLocalDataSourceImpl): GalleryLocalDataSource
 
 }

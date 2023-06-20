@@ -1,6 +1,8 @@
 package com.diningcoach.data.di.module
 
+import com.diningcoach.domain.repository.GalleryRepository
 import com.diningcoach.domain.repository.UserRepository
+import com.diningcoach.domain.usecase.gallery.GalleryImageFetchUseCase
 import com.diningcoach.domain.usecase.user.CheckIsLoginUseCase
 import dagger.Module
 import dagger.Provides
@@ -16,4 +18,10 @@ object UseCaseModule {
     @Singleton
     fun provideCheckIsLoginUseCase(repository: UserRepository): CheckIsLoginUseCase =
         CheckIsLoginUseCase(repository)
+
+    @Provides
+    @Singleton
+    fun provideGalleryImageFetchUseCase(repository: GalleryRepository): GalleryImageFetchUseCase =
+        GalleryImageFetchUseCase(repository)
+
 }
