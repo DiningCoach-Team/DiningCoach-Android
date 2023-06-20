@@ -2,7 +2,7 @@ package com.diningcoach.data.model
 
 import android.net.Uri
 
-data class GalleryModel(
+data class PhotoModel(
     val uri: Uri,
     val name: String,
     val fullName: String,

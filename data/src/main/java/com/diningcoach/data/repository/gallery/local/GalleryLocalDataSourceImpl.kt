@@ -6,7 +6,7 @@ import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore.Images.Media
-import com.diningcoach.data.model.GalleryModel
+import com.diningcoach.data.model.PhotoModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
@@ -15,7 +15,7 @@ class GalleryLocalDataSourceImpl @Inject constructor(
 ) : GalleryLocalDataSource {
     private val contentResolver = context.contentResolver
 
-    override fun fetchGalleryImages(limit: Int, offset: Int): List<GalleryModel> {
+    override fun fetchGalleryImages(limit: Int, offset: Int): List<PhotoModel> {
         val contentUri = Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(
             Media._ID,
@@ -28,7 +28,7 @@ class GalleryLocalDataSourceImpl @Inject constructor(
             Media.WIDTH,
             Media.HEIGHT,
         )
-        val galleryImage = mutableListOf<GalleryModel>()
+        val galleryImage = mutableListOf<PhotoModel>()
         val selection =
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) Media.SIZE + " > 0"
             else null
@@ -69,7 +69,7 @@ class GalleryLocalDataSourceImpl @Inject constructor(
         }?.use { cursor ->
             while (cursor.moveToNext()) {
                 galleryImage.add(
-                    GalleryModel(
+                    PhotoModel(
                         uri = Uri.withAppendedPath(
                             contentUri,
                             cursor.getLong(cursor.getColumnIndexOrThrow(Media._ID)).toString()
