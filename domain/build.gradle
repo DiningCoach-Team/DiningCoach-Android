@@ -37,6 +37,7 @@ dependencies {
     def lifecycleVersion = "2.6.1"
     def retrofitVersion = "2.9.0"
     def hiltVersion = "2.45"
+    def pagingVersion = "3.1.1"
 
     // Coroutine
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
@@ -61,4 +62,8 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$retrofitVersion"
     // Retrofit2 - log
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+    // paging
+    implementation "androidx.paging:paging-common:$pagingVersion"
+
 }

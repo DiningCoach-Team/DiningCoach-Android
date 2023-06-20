@@ -52,6 +52,7 @@ dependencies {
     def pagingVersion = "3.1.1"
     def navigationVersion= "2.5.3"
     def retrofitVersion = "2.9.0"
+    def glideVersion = "4.13.2"
 
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -98,5 +99,9 @@ dependencies {
     implementation "com.google.code.gson:gson:$retrofitVersion"
     // logging
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.0"
+
+    // glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    annotationProcessor "com.github.bumptech.glide:compiler:$glideVersion"
 
 }
